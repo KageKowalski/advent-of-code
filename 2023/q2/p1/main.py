@@ -19,7 +19,6 @@ def game_is_possible(game):
     handfuls = game.split(': ')[1].split('\n')[0].split('; ')
     for handful in handfuls:
         separated_handful = handful.split(', ')
-        print(separated_handful)
         for amount_color in separated_handful:
             amount_color = amount_color.split()
             if amount_color[1] == 'red' and int(amount_color[0]) > red_max:
