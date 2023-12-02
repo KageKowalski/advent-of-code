@@ -6,8 +6,13 @@ in_file = "in.txt"
 out_file = "out.txt"
 
 
-# Supporting function, returns numerical representation of passed word as a String, else returns original value
 def convert_numeral(numeral):
+    """
+    Supporting function
+
+    :param: numeral
+    :return: Numerical representation of passed word as a String, else returns original value
+    """
     if numeral == 'one':
         return '1'
     if numeral == 'two':
@@ -29,8 +34,13 @@ def convert_numeral(numeral):
     return numeral
 
 
-# Supporting function, returns the first numeral contained within the passed word as a String, else '-1'
 def get_first_numeral(word):
+    """
+    Supporting function
+
+    :param: word
+    :return: The first numeral contained within the passed word as a String, else '-1'
+    """
     numerals = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
                 'eight', 'nine']
 
@@ -48,8 +58,13 @@ def get_first_numeral(word):
     return convert_numeral(first_numeral)
 
 
-# Supporting function, returns the last numeral contained within the passed word as a String, else '-1'
 def get_last_numeral(word):
+    """
+    Supporting function
+
+    :param: word
+    :return: The last numeral contained within the passed word as a String, else '-1'
+    """
     numerals = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'one', 'two', 'three', 'four', 'five', 'six', 'seven',
                 'eight', 'nine']
 
@@ -67,8 +82,10 @@ def get_last_numeral(word):
     return convert_numeral(last_numeral)
 
 
-# Main function, as described in Advent of Code 2023 q1
 def main():
+    """
+    Main function, as described in Advent of Code 2023 q1
+    """
     with open(in_file, 'r') as in_f, open(out_file, 'w') as out_f:
         sum_val = 0
         for line in in_f:
