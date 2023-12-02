@@ -26,7 +26,7 @@ def get_power(game):
                 largest_green = int(amount_color[0])
             elif amount_color[1] == 'blue' and int(amount_color[0]) > largest_blue:
                 largest_blue = int(amount_color[0])
-    power = power + (largest_red * largest_green * largest_blue)
+    power = largest_red * largest_green * largest_blue
 
     return power
 
