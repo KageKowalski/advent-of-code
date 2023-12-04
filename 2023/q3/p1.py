@@ -1,6 +1,6 @@
 # vars
 in_file = "in.txt"
-out_file = "out.txt"
+out_file = "p1_out.txt"
 
 
 def pad_schematic(schematic):
@@ -108,7 +108,6 @@ def main():
         data = in_f.readlines()
     schematic = convert_txt_data_to_2d_list(data)
     padded_schematic = pad_schematic(schematic)
-    print(padded_schematic)
 
     engine_parts = get_engine_parts(padded_schematic)
     sum_val = 0
