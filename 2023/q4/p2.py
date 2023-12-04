@@ -10,9 +10,9 @@ def get_ticket_value(ticket):
     :return: Integer representing the value of the passed ticket
     """
     ticket_value = 0
-    my_numbers, winning_numbers = ticket.split(' | ')
-    for my_number in my_numbers.split():
-        if my_number in winning_numbers.split():
+    my_numbers, winning_numbers = ticket.split(' | ')[0].split(), ticket.split(' | ')[1].split()
+    for my_number in my_numbers:
+        if my_number in winning_numbers:
             ticket_value = ticket_value + 1
 
     return ticket_value
