@@ -125,7 +125,7 @@ def main():
     schematic = convert_txt_data_to_2d_list(data)
     padded_schematic = pad_schematic(schematic)
 
-    gear_ratios = get_gear_ratios(schematic)
+    gear_ratios = get_gear_ratios(padded_schematic)
     sum_val = 0
     for gear_ratio in gear_ratios:
         sum_val = sum_val + gear_ratio

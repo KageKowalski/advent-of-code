@@ -12,8 +12,6 @@ def get_ticket_value(ticket):
     ticket_value = 1
     winning_numbers = ticket.split(': ')[1].split(' | ')[0].split()
     my_numbers = ticket.split(': ')[1].split(' | ')[1].split()
-    print(f'Winning Numbers: {winning_numbers}')
-    print(f'My Numbers: {my_numbers}')
 
     win_count = 0
     for my_number in my_numbers:
@@ -27,8 +25,6 @@ def get_ticket_value(ticket):
     else:
         for i in range(win_count-1):
             ticket_value = ticket_value * 2
-
-    print(f'Ticket Value: {ticket_value}')
 
     return ticket_value
 
