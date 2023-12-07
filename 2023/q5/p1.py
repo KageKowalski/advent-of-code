@@ -27,28 +27,37 @@ def map_seed_to_location(seed, maps):
     return identifier
 
 
-def main():
-    """
-    Main function, as described in Advent of Code 2023 q4
-    """
-    maps = ''
-    seeds = []
-    with open(in_file, 'r') as in_f:
-        seeds = in_f.readline().strip('\n').split(': ')[1].split()
-        in_f.readline()
-        maps = in_f.read().split('\n\n')
+def get_seeds(data):
+    seeds = data.split('\n\n')[0].split(': ')[1].split()
+    for i in range(len(seeds)):
+        seeds[i] = int(seeds[i])
+    return seeds
 
+
+def get_maps(data):
+    maps = data.split('\n\n')
+    maps.pop(0)
     for i in range(len(maps)):
         maps[i] = maps[i].split(':\n')[1].split('\n')
         for j in range(len(maps[i])):
             maps[i][j] = maps[i][j].split()
             for k in range(len(maps[i][j])):
                 maps[i][j][k] = int(maps[i][j][k])
+    return maps
+
+
+def main():
+    """
+    Main function, as described in Advent of Code 2023 q4
+    """
+    with open(in_file, 'r') as in_f:
+        data = in_f.read()
+    seeds = get_seeds(data)
+    maps = get_maps(data)
 
     lowest_location_number = inf
     for seed in seeds:
-        print(f'Mapping seed: {seed}')
-        location = map_seed_to_location(int(seed), maps)
+        location = map_seed_to_location(seed, maps)
         if location < lowest_location_number:
             lowest_location_number = location
 
