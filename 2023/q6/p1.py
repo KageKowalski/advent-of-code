@@ -1,5 +1,5 @@
 # Imports
-from math import sqrt, ceil, floor
+from math import sqrt, ceil
 
 
 # vars
@@ -13,14 +13,15 @@ def get_winning_values_for_race(race):
     :param race: List containing race data in the format [time, distance]
     :return: A List of Integers representing what values are capable of winning the race
     """
-    winning_values = []
-    time = race[0]
-    distance = race[1]
-    for i in range(distance):
-        if i * (time - i) > distance:
-            winning_values.append(i)
+    time = float(race[0])
+    distance = float(race[1])
+    # distance > time_spent_waiting * (time - time_spent_waiting)
+    # d > x * (t - x)
+    # x < (t - √(t^2 - 4d)) / 2 OR x > (t + √(t^2 - 4d)) / 2
+    time_spent_waiting_less_than = (time - sqrt(time**2 - (4 * distance))) / 2.0
+    time_spent_waiting_greater_than = (time + sqrt(time**2 - (4 * distance))) / 2.0
 
-    return winning_values
+    return range(ceil(time_spent_waiting_less_than), ceil(time_spent_waiting_greater_than))
 
 
 def get_races(data):
@@ -50,10 +51,10 @@ def main():
     output_value = 1
     i = 1
     for race in races:
-        i = i + 1
         winning_values = get_winning_values_for_race(race)
         output_value = output_value * len(winning_values)
         print(f'Winning values for race {i}: {winning_values}')
+        i = i + 1
 
     with open(out_file, 'w') as out_f:
         out_f.write(str(output_value))
