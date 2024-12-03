@@ -1,4 +1,4 @@
-def _parse_data(_in_file):
+def parse_data(_in_file):
     """
     Parses data from input file into two lists
     :param _in_file: Name of the input file
@@ -14,7 +14,7 @@ def _parse_data(_in_file):
     return [l1, l2]
 
 
-def _calculate_distance(_sorted_data):
+def calculate_distance(_sorted_data):
     """
     Calculate distance of passed sorted data
     :param _sorted_data: List of two lists representing sorted input data
@@ -30,11 +30,11 @@ def main():
     in_file = 'in.txt'
     out_file = 'p1_out.txt'
 
-    parsed_data = _parse_data(in_file)
+    parsed_data = parse_data(in_file)
     sorted_data = [sorted(parsed_data[0]), sorted(parsed_data[1])]
 
     with open(out_file, 'w') as f:
-        f.write(str(_calculate_distance(sorted_data)))
+        f.write(str(calculate_distance(sorted_data)))
 
 
 if __name__ == '__main__':

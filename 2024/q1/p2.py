@@ -1,7 +1,7 @@
-from p1 import _parse_data
+from p1 import parse_data
 
 
-def _sort_data(_parsed_data):
+def sort_data(_parsed_data):
     """
     Sort parsed data into a useful output
     :param _parsed_data: List of two lists representing sorted input data
@@ -20,8 +20,8 @@ def main():
     in_file = 'in.txt'
     out_file = 'p2_out.txt'
 
-    parsed_data = _parse_data(in_file)
-    sorted_data = _sort_data(parsed_data)
+    parsed_data = parse_data(in_file)
+    sorted_data = sort_data(parsed_data)
 
     similarity = 0
     for n in sorted_data:
