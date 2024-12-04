@@ -1,8 +1,8 @@
 import re
 
 
-def parse_data(_in_file):
-    with open(_in_file, 'r') as f:
+def parse_data(in_file):
+    with open(in_file, 'r') as f:
         return re.findall(r'mul\(\d+,\d+\)', f.read())
 
 
@@ -14,13 +14,10 @@ def sum_muls(muls: list[str]):
     return s
 
 
-def main():
-    in_file = 'in.txt'
-    out_file = 'p1_out.txt'
-
+def main(in_file: str, out_file: str):
     with open(out_file, 'w') as f:
         f.write(str(sum_muls(parse_data(in_file))))
 
 
 if __name__ == '__main__':
-    main()
+    main('in.txt', 'p1_out.txt')
