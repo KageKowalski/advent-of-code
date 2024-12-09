@@ -30,7 +30,7 @@ def parse_data(in_file: str) -> (dict[int, list[int]], list[list[int]]):
     return instr_dict, update_list
 
 
-def validate_update(update, instr_dict) -> int:
+def validate_update(update: list[int], instr_dict: dict[int, list[int]]) -> int:
     for num in update:
         try:
             instrs = instr_dict[num]
